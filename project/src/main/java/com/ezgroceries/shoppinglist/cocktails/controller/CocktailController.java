@@ -1,6 +1,7 @@
 package com.ezgroceries.shoppinglist.cocktails.controller;
 
 import com.ezgroceries.shoppinglist.cocktails.model.Cocktail;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,8 +16,8 @@ import java.util.UUID;
 public class CocktailController {
 
     @GetMapping
-    public List<Cocktail> getCocktails(@RequestParam(required = false) String search) {
-        return getDummyResources();
+    public ResponseEntity<List<Cocktail>> getCocktails(@RequestParam(required = false) String search) {
+        return ResponseEntity.ok(getDummyResources());
     }
 
     private List<Cocktail> getDummyResources() {
