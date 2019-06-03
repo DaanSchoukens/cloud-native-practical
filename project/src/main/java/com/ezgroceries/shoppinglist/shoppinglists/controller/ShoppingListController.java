@@ -19,14 +19,14 @@ public class ShoppingListController {
 
     @PostMapping
     public ResponseEntity<ShoppingList> createShoppingList(@RequestBody() ShoppingList shoppingList) {
-        shoppingList.setId(UUID.randomUUID());
+        shoppingList.setId(UUID.fromString("4ba92a46-1d1b-4e52-8e38-13cd56c7224c"));
         return entityWithLocation(shoppingList.getId()).body(shoppingList);
     }
 
     @PostMapping("/{id}/cocktails")
     @ResponseStatus(code = HttpStatus.OK)
     public ResponseEntity<List<CocktailReference>> addCocktails(@RequestBody List<CocktailReference> cocktailReferences, @PathVariable String id) {
-        return ResponseEntity.ok(cocktailReferences);
+        return ResponseEntity.ok(cocktailReferences.subList(0, 1));
     }
 
     @GetMapping("/{id}")
@@ -44,14 +44,14 @@ public class ShoppingListController {
         List<ShoppingList> shoppingLists = new ArrayList<>();
 
         ShoppingList stephaniesList = new ShoppingList(
-                UUID.randomUUID(),
+                UUID.fromString("4ba92a46-1d1b-4e52-8e38-13cd56c7224c"),
                 "Stephanie's birthday",
                 new ArrayList<>(Arrays.asList(
                     "Tequila", "Triple Sec", "Lime juice", "Salt", "Blue Curacao")));
         shoppingLists.add(stephaniesList);
 
         ShoppingList myList = new ShoppingList(
-                UUID.randomUUID(),
+                UUID.fromString("6c7d09c2-8a25-4d54-a979-25ae779d2465"),
                 "My birthday",
                 new ArrayList<>(Arrays.asList(
                     "Tequila", "Triple Sec", "Lime juice", "Salt", "Blue Curacao")));

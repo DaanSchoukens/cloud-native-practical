@@ -9,15 +9,15 @@ public class Cocktail {
     private String name;
     private String glass;
     private String instructions;
-    private String imageUrl;
+    private String image;
     private List<String> ingredients;
 
-    public Cocktail(UUID id, String name, String glass, String instructions, String imageUrl, List<String> ingredients) {
+    public Cocktail(UUID id, String name, String glass, String instructions, String image, List<String> ingredients) {
         this.id = id;
         this.name = name;
         this.glass = glass;
         this.instructions = instructions;
-        this.imageUrl = imageUrl;
+        this.image = image;
         this.ingredients = ingredients;
     }
 
@@ -53,12 +53,12 @@ public class Cocktail {
         this.instructions = instructions;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public String getImage() {
+        return image;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public List<String> getIngredients() {
